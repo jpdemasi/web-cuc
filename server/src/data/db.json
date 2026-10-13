@@ -1,0 +1,270 @@
+{
+  "productos": [
+    {
+      "id": "prod_1",
+      "nombre": "Calzado C1 Urbano Clásico",
+      "descripcion": "Calzado resistente de lona y cuero sintético con suela vulcanizada.",
+      "precio": 45000,
+      "categoria": "Urbano",
+      "imagenes": [
+        "/productos/C1%2001.jpg",
+        "/productos/C1%2002.jpg",
+        "/productos/C1%2003.jpg"
+      ]
+    },
+    {
+      "id": "prod_2",
+      "nombre": "Zapatilla C2 Caña Baja",
+      "descripcion": "Modelo ligero y flexible para uso diario con ajuste anatómico.",
+      "precio": 42000,
+      "categoria": "Casual",
+      "imagenes": [
+        "/productos/c2%2001.jpg"
+      ]
+    },
+    {
+      "id": "prod_3",
+      "nombre": "Zapatilla C3 Confort",
+      "descripcion": "Diseño pensado para comodidad continua con amortiguación suave.",
+      "precio": 44000,
+      "categoria": "Casual",
+      "imagenes": [
+        "/productos/c3%2001.jpg"
+      ]
+    },
+    {
+      "id": "prod_4",
+      "nombre": "Calzado C4 Reforzado",
+      "descripcion": "Estructura reforzada en puntera y talón con suela antideslizante.",
+      "precio": 48000,
+      "categoria": "Trabajo",
+      "imagenes": [
+        "/productos/c4%2001.jpg",
+        "/productos/c4%2002.jpg"
+      ]
+    },
+    {
+      "id": "prod_5",
+      "nombre": "Zapatilla C5 Training",
+      "descripcion": "Capellada transpirable y base liviana para caminata y entrenamiento.",
+      "precio": 46000,
+      "categoria": "Deportivo",
+      "imagenes": [
+        "/productos/c5%2001.jpg",
+        "/productos/c5%2002.jpg"
+      ]
+    },
+    {
+      "id": "prod_6",
+      "nombre": "Bota C6 Trabajo Pesado",
+      "descripcion": "Cuero vacuno seleccionado con suela de caucho inyectado de alta durabilidad.",
+      "precio": 62000,
+      "categoria": "Trabajo",
+      "imagenes": [
+        "/productos/c6%2001.jpg",
+        "/productos/c6%2002.jpg",
+        "/productos/c6%2003.jpg"
+      ]
+    },
+    {
+      "id": "prod_7",
+      "nombre": "Zapatilla C7 Urbana Premium",
+      "descripcion": "Terminaciones finas y materiales nobles para un look urbano elegante.",
+      "precio": 52000,
+      "categoria": "Urbano",
+      "imagenes": [
+        "/productos/c7%2001.jpg",
+        "/productos/c7%2002.jpg",
+        "/productos/c7%2003.jpg"
+      ]
+    },
+    {
+      "id": "prod_8",
+      "nombre": "Calzado C8 Dieléctrico",
+      "descripcion": "Calzado de seguridad industrial con aislamiento y suela antideslizante.",
+      "precio": 65000,
+      "categoria": "Trabajo",
+      "imagenes": [
+        "/productos/c8%2001.jpg",
+        "/productos/c8%2002.jpg"
+      ]
+    },
+    {
+      "id": "prod_9",
+      "nombre": "Zapatilla C9 Lona Flex",
+      "descripcion": "Confección tradicional en lona pesada con plantilla acolchada.",
+      "precio": 39000,
+      "categoria": "Casual",
+      "imagenes": [
+        "/productos/c9%2001.jpg",
+        "/productos/c9%2002.jpg"
+      ]
+    },
+    {
+      "id": "prod_10",
+      "nombre": "Calzado C10 Suela Reforzada",
+      "descripcion": "Ideal para operarios y largas jornadas laborales de pie.",
+      "precio": 51000,
+      "categoria": "Trabajo",
+      "imagenes": [
+        "/productos/c10%2001.jpg",
+        "/productos/c10%2002.jpg"
+      ]
+    },
+    {
+      "id": "prod_11",
+      "nombre": "Zapatilla C11 Streetwear",
+      "descripcion": "Línea juvenil moderna de corte amplio y soporte acolchado.",
+      "precio": 47000,
+      "categoria": "Urbano",
+      "imagenes": [
+        "/productos/c11%2001.jpg",
+        "/productos/c11%2002.jpg"
+      ]
+    },
+    {
+      "id": "prod_13",
+      "nombre": "Calzado C13 Náutico",
+      "descripcion": "Empeine flexible con amarre firme y plantilla anatómica.",
+      "precio": 43000,
+      "categoria": "Casual",
+      "imagenes": [
+        "/productos/c13%2001.jpg"
+      ]
+    },
+    {
+      "id": "prod_14",
+      "nombre": "Zapatilla C14 Action",
+      "descripcion": "Diseño deportivo con refuerzos laterales para mayor estabilidad.",
+      "precio": 48000,
+      "categoria": "Deportivo",
+      "imagenes": [
+        "/productos/c14%2001.jpg",
+        "/productos/c14%2002.jpg"
+      ]
+    },
+    {
+      "id": "prod_15",
+      "nombre": "Calzado C15 Senderismo",
+      "descripcion": "Suela de gran tracción y materiales repelentes a la humedad.",
+      "precio": 55000,
+      "categoria": "Deportivo",
+      "imagenes": [
+        "/productos/c15%2001.jpg",
+        "/productos/c15%2002.jpg"
+      ]
+    },
+    {
+      "id": "prod_16",
+      "nombre": "Bota C16 Seguridad Obrero",
+      "descripcion": "Protección para faena pesada con puntera y cuero seleccionado.",
+      "precio": 64000,
+      "categoria": "Trabajo",
+      "imagenes": [
+        "/productos/c16%2001.jpg",
+        "/productos/c16%2002.jpg"
+      ]
+    },
+    {
+      "id": "prod_17",
+      "nombre": "Zapatilla C17 Cuero Soft",
+      "descripcion": "Confección artesanal en cuero vacuno suave al tacto y flexible.",
+      "precio": 54000,
+      "categoria": "Urbano",
+      "imagenes": [
+        "/productos/c17%2001.jpg",
+        "/productos/c17%2002.jpg"
+      ]
+    },
+    {
+      "id": "prod_18",
+      "nombre": "Calzado C18 Máxima Exigencia",
+      "descripcion": "Diseñado para resistir desgaste intensivo con costuras dobles.",
+      "precio": 58000,
+      "categoria": "Trabajo",
+      "imagenes": [
+        "/productos/c18%2001.jpg",
+        "/productos/c18%2002.jpg"
+      ]
+    }
+  ],
+  "stock": [
+    { "id": "stk_1_39", "productoId": "prod_1", "talle": 39, "cantidad": 8 },
+    { "id": "stk_1_40", "productoId": "prod_1", "talle": 40, "cantidad": 12 },
+    { "id": "stk_1_41", "productoId": "prod_1", "talle": 41, "cantidad": 10 },
+    { "id": "stk_1_42", "productoId": "prod_1", "talle": 42, "cantidad": 6 },
+
+    { "id": "stk_2_38", "productoId": "prod_2", "talle": 38, "cantidad": 5 },
+    { "id": "stk_2_39", "productoId": "prod_2", "talle": 39, "cantidad": 9 },
+    { "id": "stk_2_40", "productoId": "prod_2", "talle": 40, "cantidad": 14 },
+
+    { "id": "stk_3_39", "productoId": "prod_3", "talle": 39, "cantidad": 7 },
+    { "id": "stk_3_40", "productoId": "prod_3", "talle": 40, "cantidad": 11 },
+    { "id": "stk_3_41", "productoId": "prod_3", "talle": 41, "cantidad": 5 },
+
+    { "id": "stk_4_40", "productoId": "prod_4", "talle": 40, "cantidad": 8 },
+    { "id": "stk_4_41", "productoId": "prod_4", "talle": 41, "cantidad": 15 },
+    { "id": "stk_4_42", "productoId": "prod_4", "talle": 42, "cantidad": 10 },
+    { "id": "stk_4_43", "productoId": "prod_4", "talle": 43, "cantidad": 4 },
+
+    { "id": "stk_5_39", "productoId": "prod_5", "talle": 39, "cantidad": 6 },
+    { "id": "stk_5_40", "productoId": "prod_5", "talle": 40, "cantidad": 10 },
+    { "id": "stk_5_41", "productoId": "prod_5", "talle": 41, "cantidad": 8 },
+
+    { "id": "stk_6_40", "productoId": "prod_6", "talle": 40, "cantidad": 12 },
+    { "id": "stk_6_41", "productoId": "prod_6", "talle": 41, "cantidad": 16 },
+    { "id": "stk_6_42", "productoId": "prod_6", "talle": 42, "cantidad": 14 },
+    { "id": "stk_6_43", "productoId": "prod_6", "talle": 43, "cantidad": 6 },
+
+    { "id": "stk_7_38", "productoId": "prod_7", "talle": 38, "cantidad": 4 },
+    { "id": "stk_7_39", "productoId": "prod_7", "talle": 39, "cantidad": 8 },
+    { "id": "stk_7_40", "productoId": "prod_7", "talle": 40, "cantidad": 12 },
+    { "id": "stk_7_41", "productoId": "prod_7", "talle": 41, "cantidad": 7 },
+
+    { "id": "stk_8_41", "productoId": "prod_8", "talle": 41, "cantidad": 10 },
+    { "id": "stk_8_42", "productoId": "prod_8", "talle": 42, "cantidad": 12 },
+    { "id": "stk_8_43", "productoId": "prod_8", "talle": 43, "cantidad": 8 },
+
+    { "id": "stk_9_37", "productoId": "prod_9", "talle": 37, "cantidad": 6 },
+    { "id": "stk_9_38", "productoId": "prod_9", "talle": 38, "cantidad": 10 },
+    { "id": "stk_9_39", "productoId": "prod_9", "talle": 39, "cantidad": 15 },
+    { "id": "stk_9_40", "productoId": "prod_9", "talle": 40, "cantidad": 8 },
+
+    { "id": "stk_10_40", "productoId": "prod_10", "talle": 40, "cantidad": 9 },
+    { "id": "stk_10_41", "productoId": "prod_10", "talle": 41, "cantidad": 14 },
+    { "id": "stk_10_42", "productoId": "prod_10", "talle": 42, "cantidad": 11 },
+
+    { "id": "stk_11_39", "productoId": "prod_11", "talle": 39, "cantidad": 5 },
+    { "id": "stk_11_40", "productoId": "prod_11", "talle": 40, "cantidad": 10 },
+    { "id": "stk_11_41", "productoId": "prod_11", "talle": 41, "cantidad": 8 },
+
+    { "id": "stk_13_38", "productoId": "prod_13", "talle": 38, "cantidad": 7 },
+    { "id": "stk_13_39", "productoId": "prod_13", "talle": 39, "cantidad": 11 },
+    { "id": "stk_13_40", "productoId": "prod_13", "talle": 40, "cantidad": 9 },
+
+    { "id": "stk_14_39", "productoId": "prod_14", "talle": 39, "cantidad": 6 },
+    { "id": "stk_14_40", "productoId": "prod_14", "talle": 40, "cantidad": 13 },
+    { "id": "stk_14_41", "productoId": "prod_14", "talle": 41, "cantidad": 10 },
+
+    { "id": "stk_15_40", "productoId": "prod_15", "talle": 40, "cantidad": 8 },
+    { "id": "stk_15_41", "productoId": "prod_15", "talle": 41, "cantidad": 12 },
+    { "id": "stk_15_42", "productoId": "prod_15", "talle": 42, "cantidad": 7 },
+
+    { "id": "stk_16_41", "productoId": "prod_16", "talle": 41, "cantidad": 11 },
+    { "id": "stk_16_42", "productoId": "prod_16", "talle": 42, "cantidad": 15 },
+    { "id": "stk_16_43", "productoId": "prod_16", "talle": 43, "cantidad": 9 },
+
+    { "id": "stk_17_39", "productoId": "prod_17", "talle": 39, "cantidad": 5 },
+    { "id": "stk_17_40", "productoId": "prod_17", "talle": 40, "cantidad": 12 },
+    { "id": "stk_17_41", "productoId": "prod_17", "talle": 41, "cantidad": 8 },
+
+    { "id": "stk_18_40", "productoId": "prod_18", "talle": 40, "cantidad": 7 },
+    { "id": "stk_18_41", "productoId": "prod_18", "talle": 41, "cantidad": 14 },
+    { "id": "stk_18_42", "productoId": "prod_18", "talle": 42, "cantidad": 10 },
+    { "id": "stk_18_43", "productoId": "prod_18", "talle": 43, "cantidad": 5 }
+  ],
+  "usuarios": [
+    { "id": "usr_1", "email": "admin@unidos.coop", "password": "admin", "nombre": "Administrador", "rol": "admin" },
+    { "id": "usr_2", "email": "taller@unidos.coop", "password": "taller", "nombre": "Taller Producción", "rol": "produccion" }
+  ]
+}

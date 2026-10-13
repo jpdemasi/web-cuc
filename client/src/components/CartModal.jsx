@@ -1,81 +1,145 @@
 import React from 'react';
 import { useCart } from '../context/CartContext';
-import { FiX, FiTrash2, FiShoppingBag } from 'react-icons/fi';
+import { FiX, FiTrash2, FiPlus, FiMinus } from 'react-icons/fi';
 import { FaWhatsapp } from 'react-icons/fa';
 
 export const CartModal = ({ whatsappNumber = "5491112345678" }) => {
-  const { cart, total, isOpen, setIsOpen, removeFromCart } = useCart();
+  const { cart, isOpen, setIsOpen, incrementItem, decrementItem, removeFromCart, clearCart } = useCart();
+
   if (!isOpen) return null;
 
-  const enviarWhatsApp = () => {
-    let mensaje = "¡Hola Unidos por el Calzado! 👋%0AQuiero hacer este pedido desde la web:%0A%0A";
-    cart.forEach(item => {
-      mensaje += `✅ *${item.nombre}*%0A   Talle: *${item.talle}* x ${item.cantidad} | $${(item.precio * item.cantidad).toLocaleString('es-AR')}%0A%0A`;
+  const total = cart.reduce((acc, item) => acc + item.precio * item.cantidad, 0);
+
+  const checkoutWhatsApp = () => {
+    if (cart.length === 0) return;
+
+    let mensaje = "¡Hola Cooperativa Unidos por el Calzado! Quiero realizar el siguiente pedido:\n\n";
+    cart.forEach((item, index) => {
+      mensaje += `${index + 1}. *${item.nombre}* | Talle: ${item.talle} | Cantidad: ${item.cantidad} par(es) - $${(item.precio * item.cantidad).toLocaleString('es-AR')}\n`;
     });
-    mensaje += `💰 *Total Estimado:* $${total.toLocaleString('es-AR')}%0A%0A¿Tienen disponibilidad para coordinar? ¡Gracias!`;
-    window.open(`https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${mensaje}`, '_blank');
+    mensaje += `\n*Total Estimado:* $${total.toLocaleString('es-AR')}\n\n¿Tienen disponibilidad para coordinar la entrega? Muchas gracias.`;
+
+    const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(mensaje)}`;
+    window.open(url, '_blank');
   };
 
   return (
-    <div className="fixed inset-0 bg-stone-950/60 backdrop-blur-sm flex justify-end z-50 transition-opacity duration-300">
-    <div className="bg-white w-full max-w-md h-full shadow-2xl flex flex-col p-0 transform transition-transform duration-300 translate-x-0">
+    <div className="fixed inset-0 z-50 overflow-hidden">
+      {/* Fondo translúcido */}
+      <div 
+        className="absolute inset-0 bg-stone-950/60 backdrop-blur-xs transition-opacity"
+        onClick={() => setIsOpen(false)}
+      />
 
-    {/* Header */}
-    <div className="flex justify-between items-center px-6 py-5 border-b border-stone-100">
-    <div className="flex items-center gap-2.5 text-stone-950">
-    <FiShoppingBag className="text-2xl text-amber-600" />
-    <h2 className="text-xl font-bold tracking-tight">Tu Pedido</h2>
-    <span className="text-sm bg-stone-100 text-stone-600 px-2.5 py-0.5 rounded-full font-medium">
-    {cart.reduce((acc, i) => acc + i.cantidad, 0)} items
-    </span>
-    </div>
-    <button onClick={() => setIsOpen(false)} className="text-stone-400 hover:text-stone-900 transition p-1 rounded-full hover:bg-stone-100">
-    <FiX className="text-2xl" />
-    </button>
-    </div>
+      <div className="fixed inset-y-0 right-0 max-w-full flex pl-10">
+        <div className="w-screen max-w-md bg-white shadow-2xl flex flex-col">
+          
+          {/* Header */}
+          <div className="p-6 border-b border-stone-200 flex items-center justify-between">
+            <h2 className="text-xl font-black text-stone-950">Tu Pedido</h2>
+            <button
+              onClick={() => setIsOpen(false)}
+              className="text-stone-400 hover:text-stone-800 p-2 rounded-lg transition"
+            >
+              <FiX className="text-xl" />
+            </button>
+          </div>
 
-    {/* Body */}
-    <div className="flex-grow overflow-y-auto space-y-5 p-6 bg-stone-50">
-    {cart.length === 0 ? (
-      <div className="text-center py-16 flex flex-col items-center justify-center gap-4 bg-white rounded-xl border border-stone-100 shadow-inner">
-      <span className="text-5xl opacity-30">🛒</span>
-      <p className="text-sm text-stone-500 font-medium">El carrito está vacío.</p>
-      <button onClick={() => setIsOpen(false)} className="text-xs bg-stone-900 text-white px-4 py-1.5 rounded-full font-semibold">Explorar Catálogo</button>
+          {/* Lista de productos */}
+          <div className="flex-1 overflow-y-auto p-6 space-y-4">
+            {cart.length === 0 ? (
+              <div className="text-center py-16 text-stone-500">
+                <span className="text-4xl block mb-2">🛍️</span>
+                <p className="font-semibold">El carrito está vacío</p>
+                <p className="text-xs text-stone-400 mt-1">Elegí un modelo del catálogo para empezar.</p>
+              </div>
+            ) : (
+              cart.map((item) => (
+                <div
+                  key={`${item.id}-${item.talle}`}
+                  className="flex gap-4 p-3.5 bg-stone-50 rounded-xl border border-stone-200/80 items-center"
+                >
+                  {/* Miniatura */}
+                  <img
+                    src={item.imagenUrl || (item.imagenes && item.imagenes[0]) || '/logo.png'}
+                    alt={item.nombre}
+                    className="w-16 h-16 object-cover rounded-lg bg-stone-200 shrink-0"
+                  />
+
+                  {/* Detalle y Controles */}
+                  <div className="flex-1 min-w-0">
+                    <h4 className="font-bold text-stone-900 text-sm truncate">{item.nombre}</h4>
+                    <p className="text-xs text-stone-500">Talle: <span className="font-bold text-stone-800">{item.talle}</span></p>
+                    <p className="text-xs font-black text-amber-700 mt-0.5">
+                      ${(item.precio * item.cantidad).toLocaleString('es-AR')}
+                    </p>
+
+                    {/* Selector de cantidad + y - */}
+                    <div className="flex items-center gap-2 mt-2">
+                      <button
+                        onClick={() => decrementItem(item.id, item.talle)}
+                        className="w-6 h-6 rounded-md bg-white border border-stone-300 hover:bg-stone-200 text-stone-700 flex items-center justify-center transition active:scale-95"
+                        title="Restar unidad"
+                      >
+                        <FiMinus className="text-xs" />
+                      </button>
+
+                      <span className="text-xs font-bold w-6 text-center text-stone-900">
+                        {item.cantidad}
+                      </span>
+
+                      <button
+                        onClick={() => incrementItem(item.id, item.talle)}
+                        className="w-6 h-6 rounded-md bg-white border border-stone-300 hover:bg-stone-200 text-stone-700 flex items-center justify-center transition active:scale-95"
+                        title="Sumar unidad"
+                      >
+                        <FiPlus className="text-xs" />
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Eliminar ítem completo */}
+                  <button
+                    onClick={() => removeFromCart(item.id, item.talle)}
+                    className="text-stone-400 hover:text-red-600 p-2 transition shrink-0"
+                    title="Quitar modelo"
+                  >
+                    <FiTrash2 className="text-lg" />
+                  </button>
+                </div>
+              ))
+            )}
+          </div>
+
+          {/* Footer con Resumen y WhatsApp */}
+          {cart.length > 0 && (
+            <div className="p-6 border-t border-stone-200 bg-stone-50 space-y-4">
+              <div className="flex justify-between items-center">
+                <span className="text-sm font-semibold text-stone-600">Total:</span>
+                <span className="text-2xl font-black text-stone-950">
+                  ${total.toLocaleString('es-AR')}
+                </span>
+              </div>
+
+              <button
+                onClick={checkoutWhatsApp}
+                className="w-full flex items-center justify-center gap-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 px-4 rounded-xl shadow-md transition active:scale-[0.98]"
+              >
+                <FaWhatsapp className="text-xl" />
+                <span>Confirmar Pedido por WhatsApp</span>
+              </button>
+
+              <button
+                onClick={clearCart}
+                className="w-full text-center text-xs font-medium text-stone-400 hover:text-stone-600 transition"
+              >
+                Vaciar carrito
+              </button>
+            </div>
+          )}
+
+        </div>
       </div>
-    ) : (
-      cart.map(item => (
-        <div key={`${item.id}-${item.talle}`} className="flex gap-4 bg-white p-4 rounded-xl border border-stone-100 shadow-sm items-center">
-        <img src={item.imagenUrl} alt={item.nombre} className="w-16 h-16 rounded-lg object-cover border" />
-        <div className="flex-grow">
-        <h4 className="font-semibold text-stone-900 text-sm">{item.nombre}</h4>
-        <p className="text-xs text-stone-500">Talle: <span className='font-bold text-stone-700'>{item.talle}</span> | Cant: <span className='font-bold text-stone-700'>{item.cantidad}</span></p>
-        <span className="font-bold text-sm text-amber-700 mt-1 block">${(item.precio * item.cantidad).toLocaleString('es-AR')}</span>
-        </div>
-        <button onClick={() => removeFromCart(item.id, item.talle)} className="text-stone-300 hover:text-red-500 transition p-2 rounded-lg hover:bg-red-50">
-        <FiTrash2 className="text-lg" />
-        </button>
-        </div>
-      ))
-    )}
-    </div>
-
-    {/* Footer */}
-    <div className="border-t border-stone-100 pt-6 p-6 mt-auto bg-white shadow-[0_-4px_12px_rgba(0,0,0,0.03)]">
-    <div className="flex justify-between items-center text-stone-950 mb-6">
-    <span className="text-base font-medium text-stone-600">Total estimado:</span>
-    <span className="text-3xl font-extraboldtracking-tighter">${total.toLocaleString('es-AR')}</span>
-    </div>
-    <button
-    disabled={cart.length === 0}
-    onClick={enviarWhatsApp}
-    className="w-full flex items-center justify-center gap-3 bg-green-600 hover:bg-green-700 text-white font-bold py-4 rounded-xl text-center disabled:bg-stone-200 disabled:text-stone-500 transition shadow-lg transition-all duration-150 active:scale-[0.98]"
-    >
-    <FaWhatsapp className="text-2xl" />
-    Confirmar Pedido por WhatsApp
-    </button>
-    <p className="text-center text-xs text-stone-400 mt-3 font-medium">Coordiná stock y envío directamente con nosotros.</p>
-    </div>
-    </div>
     </div>
   );
 };

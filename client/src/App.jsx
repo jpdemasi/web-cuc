@@ -11,7 +11,6 @@ import axios from 'axios';
 
 const API_URL = "https://script.google.com/macros/s/AKfycbzr-fHIUuQ8nxDxr18Oy0_hLTw4_NAbphkhHHl6_CWDApMqfv4okXBrz4vAe_eHHmvK/exec";
 
-
 export const App = () => {
 
   const [view, setView] = useState('catalog');

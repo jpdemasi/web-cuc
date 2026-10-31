@@ -12,7 +12,11 @@ export const App = () => {
   const [productos, setProductos] = useState([]);
 
   const cargar = () => api.getProductos().then(setProductos);
-  useEffect(() => { cargar(); }, []);
+
+  useEffect(() => { 
+    cargar(); 
+  
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col bg-stone-50 text-stone-900">

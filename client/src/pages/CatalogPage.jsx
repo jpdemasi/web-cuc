@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ProductCard } from '../components/ProductCard';
 
 export const CatalogPage = ({ productos = [] }) => {
+  
   const [categoria, setCategoria] = useState('Todos');
 
   // Obtener categorías únicas presentes en los datos
@@ -55,9 +56,12 @@ export const CatalogPage = ({ productos = [] }) => {
         </div>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {productosFiltrados.map((prod) => (
-            <ProductCard key={prod.id} producto={prod} />
-          ))}
+          {productosFiltrados.map((prod) => {
+
+
+            console.log("****PRODUCTO ID EN CatalogPag: ",prod.id_producto)
+            return(<ProductCard key={prod.id_producto} producto={prod} />)
+})}
         </div>
       )}
     </div>

@@ -29,9 +29,9 @@ export const Footer = ({ setView }) => {
     <div className="space-y-4 md:col-span-1">
     <div className="cursor-pointer" onClick={() => setView('catalog')}>
     <img
-  src="/logo.png"
+    src="/logo.png"
   alt="Cooperativa Unidos por el Calzado"
-  className="h-14 w-auto object-contain"
+  className="h-16 w-auto object-contain"
 />
     </div>
     <p className="text-sm text-stone-400 leading-relaxed">

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const LogoCUC = ({ className = "h-10", variant = "dark" }) => {
+export const LogoCUC = ({ className = "h-16", variant = "dark" }) => {
   return (
     <div className={`flex items-center gap-3 ${className}`}>
       <img

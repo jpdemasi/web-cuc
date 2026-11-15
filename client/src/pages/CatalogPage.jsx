@@ -21,9 +21,9 @@ export const CatalogPage = ({ productos = [] }) => {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       {/* Encabezado del Catálogo */}
       <div className="text-center max-w-2xl mx-auto mb-10">
-        <h1 className="text-3xl sm:text-4xl font-black text-stone-950 tracking-tight mb-2">
-          Nuestra Producción Cooperativa
-        </h1>
+       <h1 className="text-3xl sm:text-4xl font-black text-red-700 tracking-tight mb-2">
+  Nuestra Producción Cooperativa
+</h1>
         <p className="text-stone-600 text-sm sm:text-base">
           Elegí tu calzado, seleccioná el talle, agregalo al carrito y confirmá tu pedido directamente por WhatsApp.
         </p>

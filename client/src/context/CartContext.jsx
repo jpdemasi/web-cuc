@@ -1,3 +1,4 @@
+
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
 const CartContext = createContext();
@@ -18,49 +19,54 @@ export const CartProvider = ({ children }) => {
     localStorage.setItem('cuc_cart', JSON.stringify(cart));
   }, [cart]);
 
-  const addToCart = (producto, talle) => {
+  const addToCart = (producto) => {
     setCart((prev) => {
       const index = prev.findIndex(
-        (item) => item.id === producto.id && item.talle === talle
+        (item) =>
+          String(item.id_producto) === String(producto.id_producto)
       );
+
       if (index !== -1) {
-        const updated = [...prev];
-        updated[index].cantidad += 1;
-        return updated;
+        return prev.map((item, i) =>
+          i === index
+            ? { ...item, cantidad: Number(item.cantidad) + 1 }
+            : item
+        );
       }
-      return [...prev, { ...producto, talle, cantidad: 1 }];
+
+      return [...prev, { ...producto, cantidad: 1 }];
     });
+
     setIsOpen(true);
   };
 
-  // Incrementar en 1
-  const incrementItem = (id, talle) => {
+  const incrementItem = (id_producto) => {
     setCart((prev) =>
       prev.map((item) =>
-        item.id === id && item.talle === talle
-          ? { ...item, cantidad: item.cantidad + 1 }
+        String(item.id_producto) === String(id_producto)
+          ? { ...item, cantidad: Number(item.cantidad) + 1 }
           : item
       )
     );
   };
 
-  // Decrementar en 1 (si queda en 0, se remueve)
-  const decrementItem = (id, talle) => {
+  const decrementItem = (id_producto) => {
     setCart((prev) =>
       prev
-        .map((item) => {
-          if (item.id === id && item.talle === talle) {
-            return { ...item, cantidad: item.cantidad - 1 };
-          }
-          return item;
-        })
-        .filter((item) => item.cantidad > 0)
+        .map((item) =>
+          String(item.id_producto) === String(id_producto)
+            ? { ...item, cantidad: Number(item.cantidad) - 1 }
+            : item
+        )
+        .filter((item) => Number(item.cantidad) > 0)
     );
   };
 
-  const removeFromCart = (id, talle) => {
+  const removeFromCart = (id_producto) => {
     setCart((prev) =>
-      prev.filter((item) => !(item.id === id && item.talle === talle))
+      prev.filter(
+        (item) => String(item.id_producto) !== String(id_producto)
+      )
     );
   };
 

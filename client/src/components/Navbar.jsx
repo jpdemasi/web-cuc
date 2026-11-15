@@ -15,14 +15,14 @@ export const Navbar = ({ currentView, setView }) => {
   return (
     <nav className="bg-white border-b border-stone-200/80 sticky top-0 z-40 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16 items-center">
+        <div className="flex justify-between h-18 items-center">
 
           {/* Logo CUC Oficial (vuelve a la vista de catálogo/inicio) */}
           <div 
             className="cursor-pointer select-none py-1 group" 
             onClick={() => setView('catalog')}
           >
-            <LogoCUC className="h-10" variant="dark" />
+            <LogoCUC className="h-16" variant="dark" />
           </div>
 
           {/* Opciones y Acciones */}
